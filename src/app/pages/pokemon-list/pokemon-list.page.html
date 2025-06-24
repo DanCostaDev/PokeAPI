@@ -4,36 +4,37 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content #contentRef>
   <ion-grid>
     <ion-row>
-      <ion-col size="6" size-md="3" *ngFor="let pokemon of pokemons">
-        <ion-card color="warning" class="pokemon-card">
-  
-
-          <ion-card-content class="pokemon-img-container">
-            <div class="pokemon-img-wrapper">
-
-              <ion-img
-                [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + getPokemonId(pokemon.url) + '.png'"
-                alt=""
-                class="pokemon-shadow"
-              ></ion-img>
-  
-              <ion-img
-                [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + getPokemonId(pokemon.url) + '.png'"
-                alt="{{ pokemon.name }}"
-                class="pokemon-img"
-              ></ion-img>
-            </div>
-          </ion-card-content>
-  
-          <ion-card-header class="pokemon-title-header">
-            <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
-          </ion-card-header>
-  
-        </ion-card>
-      </ion-col>
+        <ion-col size="6" size-sm="3" size-md="2" *ngFor="let pokemon of pokemons"  [@cardListAnimation]>
+          <ion-card
+            [style]="getCardGradient(pokemon)"
+            class="pokemon-card"
+            (click)="onPokemonSelected(pokemon)"
+            button="true"
+          >
+            <ion-card-content class="pokemon-img-container">
+              <div class="pokemon-img-wrapper">
+                <ion-img
+                  [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + getPokemonId(pokemon.url) + '.png'"
+                  alt="{{ pokemon.name }} shadow"
+                  class="pokemon-shadow"
+                ></ion-img>
+    
+                <ion-img
+                  [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + getPokemonId(pokemon.url) + '.png'"
+                  alt="{{ pokemon.name }}"
+                  class="pokemon-img"
+                ></ion-img>
+              </div>
+            </ion-card-content>
+    
+            <ion-card-header class="pokemon-title-header">
+              <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
     </ion-row>
   </ion-grid>
   <ion-grid>

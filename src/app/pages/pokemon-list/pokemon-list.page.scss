@@ -1,8 +1,21 @@
 .pokemon-card {
-    height: 200px;
-    display: flex;
-    flex-direction: column;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
   }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}
   
   .pokemon-img-container {
     position: relative;
@@ -49,4 +62,72 @@
     margin: 0;
     font-size: 14px;
   }
-  
+
+  // Tipos & cores
+  .type-fire {
+  --ion-card-background: #f08030;
+}
+
+.type-water {
+  --ion-card-background: #6890f0;
+}
+
+.type-grass {
+  --ion-card-background: #78c850;
+}
+
+.type-electric {
+  --ion-card-background: #f8d030;
+}
+
+.type-psychic {
+  --ion-card-background: #f85888;
+}
+
+.type-ice {
+  --ion-card-background: #98d8d8;
+}
+
+.type-ground {
+  --ion-card-background: #e0c068;
+}
+
+.type-rock {
+  --ion-card-background: #b8a038;
+}
+
+.type-ghost {
+  --ion-card-background: #705898;
+}
+
+.type-dark {
+  --ion-card-background: #705848;
+}
+
+.type-steel {
+  --ion-card-background: #b8b8d0;
+}
+
+.type-fairy {
+  --ion-card-background: #ee99ac;
+}
+
+.type-dragon {
+  --ion-card-background: #7038f8;
+}
+
+.type-bug {
+  --ion-card-background: #a8b820;
+}
+
+.type-fighting {
+  --ion-card-background: #c03028;
+}
+
+.type-poison {
+  --ion-card-background: #a040a0;
+}
+
+.type-normal {
+  --ion-card-background: #a8a878;
+}
